@@ -21,8 +21,7 @@ public class EvenOddPartition {
                 // swap elements of start and end.
                 int temp = input[start];
                 input[start] = input[end];
-                input[end] = temp;
-                end--;
+                input[end--] = temp;
             } else {
                 // Just increment the 'start' pointer as the element at 'start' is already even.
                 start++;
