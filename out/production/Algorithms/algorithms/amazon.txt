@@ -1,0 +1,48 @@
+A --> B --> C --> D --> E
+
+CopyA --> CopyB --> CopyC --> ...
+
+class Node {
+    String value;
+    Node nextNode;
+    Node randomNode;
+}
+
+/* Comment */
+public Node clone(Node head) {
+    if(head == null) {
+        return null;
+    }
+
+    Node temp = head;
+    while(temp != null) {
+        Node newNode = new Node(temp.value, null, null);
+        newNode.nextNode = temp.nextNode;
+        temp.nextNode = newNode;
+
+        temp = temp.nextNode.nextNode;
+    }
+
+    temp = head;
+    while(temp != null) {
+        temp.next.randomNode = temp.randomNode.nextNode;
+        temp = temp.nextNode.nextNode;
+    }
+
+    Node clone = head.nextNode;
+    Node tempClone = clone;
+    temp = head;
+    while(temp != null) {
+        temp.nextNode = temp.nextNode.nextNode;
+        tempClone.nextNode = tempClone.nextNode.nextNode;
+        temp = temp.nextNode.nextNode;
+        tempClone = tempClone.nextNode.nextNode;
+
+        if(temp.nextNode.nextNode = null) {
+            temp.nextNode = null;
+        }
+    }
+
+
+    return clone;
+}
